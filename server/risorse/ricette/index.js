@@ -5,9 +5,17 @@ var Ricette = require('./ricette.controller.js');
 
 //ROTTE CHE  MI RESTITUISCONO LE RICETTE DAL MONDO
 router.get("/", Ricette.getRicette);
+
+
 //ROTTE CHE  MI RESTITUISCONO una ricetta
-router.get("/:id", Ricette.dettaglioRicetta);
+router.get("/:id([0-9a-f]{24})", Ricette.dettaglioRicetta);
+
+
 //ROTTE CHE  MI creano una ricetta
 router.post("/", Ricette.creaRicetta);
+
+
+
+
 
 module.exports=router;

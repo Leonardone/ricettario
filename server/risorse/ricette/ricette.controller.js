@@ -1,3 +1,5 @@
+var mongoose= require('mongoose');
+var Ricette= require('./ricette.model.js');
 module.exports=(function(){
 
 
@@ -7,12 +9,18 @@ module.exports=(function(){
 
             }
                var dettaglioRicetta=function(req, res){
-                res.send("dettaglio ricetta");
+                   var id= req.params.id;
+                res.send("dettaglio ricetta con id"+id);
 
             }
                var creaRicetta=function(req, res){
-                res.send("Nuova ricetta");
-
+                   var nuovaRicetta= new Ricette(req.body);
+                  nuovaRicetta.save().then(function(data){
+                      res.status(200).json(data)
+                  }).catch(function(err){
+                      res.status(500).json(err);
+                  });
+               
             }
             return{
 
