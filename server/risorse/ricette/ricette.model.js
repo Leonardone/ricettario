@@ -7,6 +7,7 @@ titolo: {
     type: String,
     required:[true, "devi inserire il titolo"]
         },
+        jsdklfjsdlkf
 categoria:{
     type:String,
     enum:["dolce","secondo", "primo","antipasto","contorni"],
