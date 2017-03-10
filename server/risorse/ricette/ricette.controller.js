@@ -6,10 +6,19 @@ module.exports=(function(){
                 res.send("le ricette del mondo");
 
             }
+               var dettaglioRicetta=function(req, res){
+                res.send("dettaglio ricetta");
+
+            }
+               var creaRicetta=function(req, res){
+                res.send("Nuova ricetta");
+
+            }
             return{
 
-                getRicette:getRicette
-
+                getRicette: getRicette,
+                dettaglioRicetta: dettaglioRicetta,
+                creaRicetta: creaRicetta
                   }
 
                          })();  
