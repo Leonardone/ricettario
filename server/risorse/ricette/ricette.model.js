@@ -5,7 +5,8 @@ var ricettaSchema= new Schema({
     
 titolo: {
     type: String,
-    required:[true, "devi inserire il titolo"]
+    required:[true, "devi inserire il titolo"],
+    unique: true
         },
         
 categoria:{
@@ -43,16 +44,27 @@ ingredienti:[{
     required:[true, "devi inserire gli ingredienti"]
 }],
 voto:{
-    type:Number,
-    min:[1,"troppo poco"],
-    max:[5, "troppo"]
+    nvoti:{
+         type:Number,
+         },
+   svoti:{
+       type:Number,
+    
+   }
+   
 },
 commenti:[{
         autore:{
             type: Schema.Types.ObjectId,
             ref:"Utenti"
                 },
-        commento:String
+        commento:
+            {type: String,
+            lowercase:true
+        },
+            datacreazione:{
+            type:Date
+        }
 
 }]
 
