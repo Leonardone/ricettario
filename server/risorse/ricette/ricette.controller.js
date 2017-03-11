@@ -5,7 +5,9 @@ module.exports=(function(){
 
 
             var getRicette=function(req, res){
-               Ricette.find().exec().then(function(data){
+               Ricette.find()
+               .populate('commenti.autore')
+               .exec().then(function(data){
                    res.status(200).json(data);
                }).catch(function(err){
                    res.status(500).json(err)
@@ -14,7 +16,9 @@ module.exports=(function(){
             }
                var dettaglioRicetta=function(req, res){
                    var id= req.params.id;
-                   Ricette.findById(id).exec().then(function(data){
+                   Ricette.findById(id)
+                   .populate('commenti.autore')
+                   .exec().then(function(data){
                        res.status(200).json(data);
                    }).catch(function(err){
                        res.status(500).json(err);
